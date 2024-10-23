@@ -1,0 +1,22 @@
+<div class="word-entry-button">
+  <div class="main-container">
+
+    <div class="users" *ngFor="let user of users">
+      <p>Name : {{user.displayName}}</p>
+      <p>UserId : {{user.userId}}</p>
+      <p>Status : {{user.active ? 'Active' : 'Inactive'}}</p>
+      <H4 *ngIf="!user.active">Only enter corresponding credentials while logging in</H4>
+
+      <button class="user-entry-btn" (click)="onlogin(user)" *ngIf="!user.active">Login to Microsoft</button>
+      <button class="user-entry-btn" (click)="logout(user.userId)" *ngIf="user.active" >Logout</button>
+      
+      <div class="MS-APPS" *ngIf="user.active" >
+        <button (click)="gotoWord(user.userId)" [ngStyle]="{'background-color' : '#0000ff'}">Go to Word</button>
+        <button (click)="gotoExcel(user.userId)" [ngStyle]="{'background-color' : '#116b11f0'}">Go to Excel</button>
+      </div>
+    </div>
+    
+    <button class="user-entry-btn" (click)="addNewLicence()">Login to New account</button>
+
+  </div>
+</div>

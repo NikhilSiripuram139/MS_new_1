@@ -1,0 +1,31 @@
+.word-entry-button{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    background-color: #64abbe;
+    padding: 10px;
+    margin: 10px;
+    color: rgb(255, 255, 255);
+    border: 0px white;
+    min-width: 10vw;
+    height: 5vh;
+}
+
+.user-entry-btn{
+    background-color: rgb(18, 131, 157);
+    color: black;
+}
+
+.users{
+    width: 60vw;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    color: black;
+}
