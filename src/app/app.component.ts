@@ -39,6 +39,21 @@ export class AppComponent implements OnInit {
     }
   }
 
+  loadConfig() {
+    this.http.get('/assets/config.json').subscribe((config: any) => {
+      environment.myurl = config.myurl;
+      environment.api = config.api;
+      environment.CLIENT_ID = config.CLIENT_ID;
+      environment.OBJECT_ID = config.OBJECT_ID;
+      environment.TENANT_ID = config.TENANT_ID;
+      environment.REDIRECT_URI = config.REDIRECT_URI;
+      environment.CLIENT_SECRET = config.CLIENT_SECRET;
+      environment.CLIENT_SECRET_ID = config.CLIENT_SECRET_ID;
+      console.log('Config loaded:', config);
+    });
+  }
+  
+
   async addNewLicence() {
 
     window.location.href = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=${this.Client_Id}&response_type=code&redirect_uri=${this.redirectUri}&scope=openid profile offline_access https://graph.microsoft.com/User.Read https://graph.microsoft.com/Files.ReadWrite.All`
